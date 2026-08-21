@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 
 const generosRoutes = require('../routes/generos');
 const directoresRoutes = require('../routes/directores');
@@ -14,13 +15,13 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
-// Ruta de prueba
-app.get('/', (req, res) => {
-    res.json({
-        mensaje: 'API de Películas funcionando correctamente'
-    });
-});
+// Servir Frontend
+app.use(express.static(path.join(__dirname, '../frontend')));
 
+// Ruta principal del Frontend
+app.get('/', (req, res) => {
+    res.send('PRUEBA FRONTEND FUNCIONANDO');
+});
 // Rutas de géneros
 app.use('/api/generos', generosRoutes);
 

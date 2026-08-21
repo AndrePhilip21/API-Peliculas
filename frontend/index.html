@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Películas - Administrador</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="contenedor">
+        <h1>🎬 API Películas</h1>
+        <p>Panel de administración</p>
+    </div>
+</header>
+
+<main class="contenedor">
+
+    <section class="bienvenida">
+        <h2>Gestión de películas y series</h2>
+        <p>Administra las producciones registradas en la plataforma.</p>
+
+        <button id="btnNueva">
+            ➕ Agregar producción
+        </button>
+    </section>
+
+    <section class="estadisticas">
+
+        <div class="tarjeta">
+            <span>🎬</span>
+            <h3>Películas y Series</h3>
+            <strong id="totalMedia">0</strong>
+        </div>
+
+        <div class="tarjeta">
+            <span>🎭</span>
+            <h3>Géneros</h3>
+            <strong id="totalGeneros">0</strong>
+        </div>
+
+        <div class="tarjeta">
+            <span>🎥</span>
+            <h3>Directores</h3>
+            <strong id="totalDirectores">0</strong>
+        </div>
+
+        <div class="tarjeta">
+            <span>🏢</span>
+            <h3>Productoras</h3>
+            <strong id="totalProductoras">0</strong>
+        </div>
+
+    </section>
+
+    <!-- Formulario -->
+
+    <section id="formularioSeccion" class="formulario-seccion oculto">
+
+        <h2 id="tituloFormulario">Agregar producción</h2>
+
+        <form id="mediaForm">
+
+            <input type="hidden" id="mediaId">
+
+            <label>Serial</label>
+            <input type="text" id="serial" required>
+
+            <label>Título</label>
+            <input type="text" id="titulo" required>
+
+            <label>Sinopsis</label>
+            <textarea id="sinopsis"></textarea>
+
+            <label>URL</label>
+            <input type="url" id="url" required>
+
+            <label>Imagen</label>
+            <input type="url" id="imagen">
+
+            <label>Año de estreno</label>
+            <input type="number" id="anio_estreno">
+
+            <label>Género</label>
+            <select id="genero_id" required></select>
+
+            <label>Director</label>
+            <select id="director_id" required></select>
+
+            <label>Productora</label>
+            <select id="productora_id" required></select>
+
+            <label>Tipo</label>
+            <select id="tipo_id" required></select>
+
+            <div class="acciones-formulario">
+
+                <button type="submit">
+                    💾 Guardar
+                </button>
+
+                <button type="button" id="btnCancelar">
+                    Cancelar
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+    <!-- Producciones -->
+
+    <section class="producciones">
+
+        <div class="titulo-seccion">
+
+            <div>
+                <h2>Producciones</h2>
+                <p>Películas y series registradas</p>
+            </div>
+
+            <button id="btnActualizar">
+                🔄 Actualizar
+            </button>
+
+        </div>
+
+        <div id="listaMedia" class="lista-media">
+            <p class="cargando">Cargando producciones...</p>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>API Películas - Proyecto académico</p>
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+</html>
