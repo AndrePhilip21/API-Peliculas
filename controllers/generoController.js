@@ -6,6 +6,7 @@ const db = new Database('peliculas.db');
 const obtenerGeneros = (req, res) => {
     try {
         const generos = db.prepare('SELECT * FROM generos').all();
+
         res.json(generos);
     } catch (error) {
         res.status(500).json({
@@ -93,8 +94,8 @@ const actualizarGenero = (req, res) => {
                 fecha_actualizacion = CURRENT_TIMESTAMP
             WHERE id = ?
         `).run(
-            nombre || genero.nombre,
-            estado || genero.estado,
+            nombre !== undefined ? nombre : genero.nombre,
+            estado !== undefined ? estado : genero.estado,
             descripcion !== undefined ? descripcion : genero.descripcion,
             id
         );
@@ -104,7 +105,10 @@ const actualizarGenero = (req, res) => {
             .get(id);
 
         res.json(generoActualizado);
+
     } catch (error) {
+        console.error('Error al actualizar el género:', error);
+
         res.status(500).json({
             error: 'Error al actualizar el género'
         });
@@ -131,7 +135,10 @@ const eliminarGenero = (req, res) => {
         res.json({
             mensaje: 'Género eliminado correctamente'
         });
+
     } catch (error) {
+        console.error('Error al eliminar el género:', error);
+
         res.status(500).json({
             error: 'Error al eliminar el género'
         });
