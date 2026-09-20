@@ -1,6 +1,6 @@
 const express = require('express');
 
-const controller = require('../controllers/generocontroller');
+const controller = require('../controllers/generoController');
 
 const generosRoutes = express.Router();
 
