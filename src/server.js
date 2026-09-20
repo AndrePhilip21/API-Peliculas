@@ -2,6 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 
+require('../database/database');
+
+const generosRoutes = require('../routes/generos');
+
 const generosRoutes = require('../routes/generos');
 const directoresRoutes = require('../routes/directores');
 const productorasRoutes = require('../routes/productoras');
