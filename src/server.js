@@ -9,7 +9,7 @@ const tiposRoutes = require('../routes/tipos');
 const mediaRoutes = require('../routes/media');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middlewares
 app.use(cors());
@@ -20,8 +20,9 @@ app.use(express.static(path.join(__dirname, '../frontend')));
 
 // Ruta principal del Frontend
 app.get('/', (req, res) => {
-    res.send('PRUEBA FRONTEND FUNCIONANDO');
+    res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
+
 // Rutas de géneros
 app.use('/api/generos', generosRoutes);
 
