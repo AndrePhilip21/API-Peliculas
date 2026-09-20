@@ -24,23 +24,23 @@ function Media() {
   const cargarDatos = async () => {
     try {
       const respuestaMedia = await axios.get(
-        'http://localhost:3000/api/media'
+        'https://api-peliculas-jpv1.onrender.com/api/media'
       );
 
       const respuestaGeneros = await axios.get(
-        'http://localhost:3000/api/generos'
+        'https://api-peliculas-jpv1.onrender.com/api/generos'
       );
 
       const respuestaDirectores = await axios.get(
-        'http://localhost:3000/api/directores'
+        'https://api-peliculas-jpv1.onrender.com/api/directores'
       );
 
       const respuestaProductoras = await axios.get(
-        'http://localhost:3000/api/productoras'
+        'https://api-peliculas-jpv1.onrender.com/api/productoras'
       );
 
       const respuestaTipos = await axios.get(
-        'http://localhost:3000/api/tipos'
+        'https://api-peliculas-jpv1.onrender.com/api/tipos'
       );
 
       setMedia(respuestaMedia.data);
@@ -103,14 +103,14 @@ function Media() {
 
       if (editando) {
         await axios.put(
-          `http://localhost:3000/api/media/${editando.id}`,
+          `https://api-peliculas-jpv1.onrender.com/api/media/${editando.id}`,
           datos
         );
 
         alert('Película o serie actualizada correctamente.');
       } else {
         await axios.post(
-          'http://localhost:3000/api/media',
+          'https://api-peliculas-jpv1.onrender.com/api/media',
           datos
         );
 
@@ -166,7 +166,7 @@ function Media() {
 
     try {
       await axios.delete(
-        `http://localhost:3000/api/media/${id}`
+        `https://api-peliculas-jpv1.onrender.com/api/media/${id}`
       );
 
       alert('Película o serie eliminada correctamente.');

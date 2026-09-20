@@ -1,4 +1,4 @@
-const API = 'http://localhost:3000/api';
+const API = 'https://api-peliculas-jpv1.onrender.com/api';
 
 const listaMedia = document.getElementById('listaMedia');
 

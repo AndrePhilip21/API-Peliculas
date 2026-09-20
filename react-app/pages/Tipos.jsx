@@ -9,7 +9,7 @@ function Tipos() {
 
   const cargarTipos = () => {
     axios
-      .get('http://localhost:3000/api/tipos')
+      .get('https://api-peliculas-jpv1.onrender.com/api/tipos')
       .then((respuesta) => {
         setTipos(respuesta.data);
       })
@@ -31,7 +31,7 @@ function Tipos() {
 
     if (editando) {
       axios
-        .put(`http://localhost:3000/api/tipos/${editando.id}`, {
+        .put(`https://api-peliculas-jpv1.onrender.com/api/tipos/${editando.id}`, {
           nombre: nombre,
           descripcion: descripcion
         })
@@ -46,7 +46,7 @@ function Tipos() {
         });
     } else {
       axios
-        .post('http://localhost:3000/api/tipos', {
+        .post('https://api-peliculas-jpv1.onrender.com/api/tipos', {
           nombre: nombre,
           descripcion: descripcion
         })
@@ -79,7 +79,7 @@ function Tipos() {
     }
 
     axios
-      .delete(`http://localhost:3000/api/tipos/${id}`)
+      .delete(`https://api-peliculas-jpv1.onrender.com/api/tipos/${id}`)
       .then(() => {
         cargarTipos();
       })

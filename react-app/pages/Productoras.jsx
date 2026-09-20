@@ -10,7 +10,7 @@ function Productoras() {
 
   const cargarProductoras = () => {
     axios
-      .get('http://localhost:3000/api/productoras')
+      .get('https://api-peliculas-jpv1.onrender.com/api/productoras')
       .then((respuesta) => {
         setProductoras(respuesta.data);
       })
@@ -32,7 +32,7 @@ function Productoras() {
 
     if (editando) {
       axios
-        .put(`http://localhost:3000/api/productoras/${editando.id}`, {
+        .put(`https://api-peliculas-jpv1.onrender.com/api/productoras/${editando.id}`, {
           nombre: nombre,
           slogan: slogan,
           descripcion: descripcion,
@@ -50,7 +50,7 @@ function Productoras() {
         });
     } else {
       axios
-        .post('http://localhost:3000/api/productoras', {
+        .post('https://api-peliculas-jpv1.onrender.com/api/productoras', {
           nombre: nombre,
           slogan: slogan,
           descripcion: descripcion
@@ -87,7 +87,7 @@ function Productoras() {
     }
 
     axios
-      .delete(`http://localhost:3000/api/productoras/${id}`)
+      .delete(`https://api-peliculas-jpv1.onrender.com/api/productoras/${id}`)
       .then(() => {
         cargarProductoras();
       })

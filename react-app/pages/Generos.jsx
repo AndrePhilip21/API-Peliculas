@@ -14,7 +14,7 @@ function Generos() {
   const cargarGeneros = async () => {
     try {
       const respuesta = await axios.get(
-        'http://localhost:3000/api/generos'
+        'https://api-peliculas-jpv1.onrender.com/api/generos'
       );
 
       setGeneros(respuesta.data);
@@ -46,7 +46,7 @@ function Generos() {
     try {
       if (editando) {
         await axios.put(
-          `http://localhost:3000/api/generos/${idEditando}`,
+          `https://api-peliculas-jpv1.onrender.com/api/generos/${idEditando}`,
           {
             nombre: nombre,
             estado: estado,
@@ -57,7 +57,7 @@ function Generos() {
         alert('Género actualizado correctamente.');
       } else {
         await axios.post(
-          'http://localhost:3000/api/generos',
+          'https://api-peliculas-jpv1.onrender.com/api/generos',
           {
             nombre: nombre,
             estado: estado,
@@ -109,7 +109,7 @@ function Generos() {
 
     try {
       await axios.delete(
-        `http://localhost:3000/api/generos/${id}`
+        `https://api-peliculas-jpv1.onrender.com/api/generos/${id}`
       );
 
       alert('Género eliminado correctamente.');
@@ -282,4 +282,4 @@ function Generos() {
   );
 }
 
-export default Generos;;
+export default Generos;

@@ -8,7 +8,7 @@ function Directores() {
 
   const cargarDirectores = () => {
     axios
-      .get('http://localhost:3000/api/directores')
+      .get('https://api-peliculas-jpv1.onrender.com/api/directores')
       .then((respuesta) => {
         setDirectores(respuesta.data);
       })
@@ -30,7 +30,7 @@ function Directores() {
 
     if (editando) {
       axios
-        .put(`http://localhost:3000/api/directores/${editando.id}`, {
+        .put(`https://api-peliculas-jpv1.onrender.com/api/directores/${editando.id}`, {
           nombres: nombres,
           estado: editando.estado
         })
@@ -44,7 +44,7 @@ function Directores() {
         });
     } else {
       axios
-        .post('http://localhost:3000/api/directores', {
+        .post('https://api-peliculas-jpv1.onrender.com/api/directores', {
           nombres: nombres
         })
         .then(() => {
@@ -73,7 +73,7 @@ function Directores() {
     }
 
     axios
-      .delete(`http://localhost:3000/api/directores/${id}`)
+      .delete(`https://api-peliculas-jpv1.onrender.com/api/directores/${id}`)
       .then(() => {
         cargarDirectores();
       })
